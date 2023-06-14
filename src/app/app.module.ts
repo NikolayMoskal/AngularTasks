@@ -3,18 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
-import { AppComponent } from './app/app.component';
+import { MediaItemComponent } from './media-item/media-item.component';
 import { MenuComponent } from './header/menu/menu.component';
 import { MenuItemComponent } from './header/menu/menu-item/menu-item.component';
 import { LogoComponent } from './header/logo/logo.component';
+import { MediaPageComponent } from './media-page/media-page.component';
+import { HomeComponent } from './home/home.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
     LogoComponent,
     HeaderComponent,
-    AppComponent,
+    MediaItemComponent,
     MenuComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    MediaPageComponent,
+    HomeComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +28,8 @@ import { LogoComponent } from './header/logo/logo.component';
   ],
   providers: [],
   bootstrap: [
-    HeaderComponent
+    HeaderComponent,
+    AppComponent
   ]
 })
 export class AppModule { }

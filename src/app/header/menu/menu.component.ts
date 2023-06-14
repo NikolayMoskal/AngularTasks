@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./menu.component.less']
 })
 export class MenuComponent {
-  items: string[] = [
-    'Item1',
-    'Item2'
+  items: any[] = [
+    { title: 'Item1', link: '/page' },
+    { title: 'Item2', link: '/' }
   ]
 
   constructor(private titleService: Title) {}
