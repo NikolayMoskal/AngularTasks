@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class MenuComponent {
   items: any[] = [
-    { title: 'Item1', link: '/page' },
+    { title: 'Media Items', link: '/category' },
     { title: 'Item2', link: '/' }
   ]
 

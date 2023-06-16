@@ -7,6 +7,7 @@ import { MediaItem } from '../models/media-item';
 })
 export class SearchPipe implements PipeTransform {
   transform(array: MediaItem[], input: string): MediaItem[] {
-    return array.filter(x => x.name.includes(input));
+    input = input.toLowerCase();
+    return array.filter(x => x.name.toLowerCase().includes(input));
   }
 }

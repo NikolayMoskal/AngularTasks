@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 import { SearchPipe } from './search/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { Page404Component } from './page-404/page-404.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     MediaPageComponent,
     HomeComponent,
     AppComponent,
-    SearchPipe
+    SearchPipe,
+    Page404Component
   ],
   imports: [
     BrowserModule,
