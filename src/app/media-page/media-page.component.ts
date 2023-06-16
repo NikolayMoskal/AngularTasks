@@ -9,6 +9,7 @@ import { MediaItem } from '../models/media-item';
 })
 export class MediaPageComponent implements OnInit {
   mediaItems: MediaItem[] = [];
+  searchValue = '';
 
   constructor(private mediaItemsService: MediaItemsService) {}
   

@@ -10,6 +10,8 @@ import { LogoComponent } from './header/logo/logo.component';
 import { MediaPageComponent } from './media-page/media-page.component';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
+import { SearchPipe } from './search/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { AppComponent } from './app.component';
     MenuItemComponent,
     MediaPageComponent,
     HomeComponent,
-    AppComponent
+    AppComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

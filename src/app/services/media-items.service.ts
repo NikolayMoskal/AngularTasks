@@ -7,10 +7,10 @@ import { IMediaItemsService } from '../interfaces/i-media-items.service';
 })
 export class MediaItemsService implements IMediaItemsService {
   mediaItems: MediaItem[] = [
-    {id: '1', name: 'MediaItem1'},
-    {id: '2', name: 'MediaItem2'},
-    {id: '3', name: 'MediaItem3'},
-    {id: '4', name: 'MediaItem4'}
+    {id: '1', name: 'Internet'},
+    {id: '2', name: 'Video'},
+    {id: '3', name: 'Stream'},
+    {id: '4', name: 'Music'}
   ];
 
   constructor() { }

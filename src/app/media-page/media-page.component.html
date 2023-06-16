@@ -1,3 +1,6 @@
 <div class="container-lg media-page">
-    <app-media-item class="media-page__media-item" *ngFor="let item of mediaItems" [name]="item.name"></app-media-item>
+    <input class="media-page__search form-control" type="text" placeholder="Type media item name" [(ngModel)]="searchValue" />
+    <div class="media-page__media-items">
+        <app-media-item class="media-page__media-item" *ngFor="let item of mediaItems | search:searchValue" [name]="item.name"></app-media-item>
+    </div>
 </div>
