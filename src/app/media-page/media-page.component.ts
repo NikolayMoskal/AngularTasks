@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaItemsService } from '../services/media-items.service';
 import { MediaItem } from '../models/media-item';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-media-page',
@@ -14,6 +15,10 @@ export class MediaPageComponent implements OnInit {
   constructor(private mediaItemsService: MediaItemsService) {}
   
   ngOnInit(): void {
-    this.mediaItems = this.mediaItemsService.getAll();
+    this.mediaItemsService.getAll().subscribe(x => this.mediaItems = x);
+  }
+
+  onSubmit(mediaForm: NgForm): void {
+    this.searchValue = mediaForm.value.searchValue;
   }
 }

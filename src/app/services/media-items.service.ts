@@ -1,44 +1,35 @@
 import { Injectable } from '@angular/core';
 import { MediaItem } from '../models/media-item';
 import { IMediaItemsService } from '../interfaces/i-media-items.service';
+import { Observable, map } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MediaItemsService implements IMediaItemsService {
-  mediaItems: MediaItem[] = [
-    {id: '1', name: 'Internet'},
-    {id: '2', name: 'Video'},
-    {id: '3', name: 'Stream'},
-    {id: '4', name: 'Music'}
-  ];
+  private serverUrl = 'http://localhost:5266/api/MediaItems'
+  private headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*');
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public getAll(): MediaItem[] {
-    return this.mediaItems;
+  public getAll(): Observable<MediaItem[]> {
+    return this.http.get<MediaItem[]>(`${this.serverUrl}/GetAll`);
   }
 
-  public getById(id: string): MediaItem | undefined {
-    return this.mediaItems.find(x => x.id === id);
+  public getById(id: string): Observable<MediaItem | undefined> {
+    return this.http.get<MediaItem>(`${this.serverUrl}/GetById`, { headers: this.headers, params: new HttpParams().set("id", id) });
   }
 
-  public saveOrUpdate(mediaItem: MediaItem): void {
-    var index = this.mediaItems.findIndex(x => x.id === mediaItem.id);
-
-    if (index < 0) {
-      this.mediaItems.push(mediaItem);
-      return;
-    }
-
-    this.mediaItems[index] = mediaItem;
+  public saveOrUpdate(mediaItem: MediaItem): Observable<MediaItem> {
+    return this.http.post<MediaItem>(`${this.serverUrl}/SaveOrUpdate`, mediaItem, { headers: this.headers });
   }
 
-  public delete(id: string): void {
-    var index = this.mediaItems.findIndex(x => x.id === id);
-
-    if (index >= 0) {
-      this.mediaItems.splice(index, 1);
-    }
+  public delete(id: string): Observable<MediaItem> {
+    var params = new HttpParams()
+      .set('id', id);
+    return this.http.delete<MediaItem>(`${this.serverUrl}/Delete`, { headers: this.headers, params: params });
   }
 }

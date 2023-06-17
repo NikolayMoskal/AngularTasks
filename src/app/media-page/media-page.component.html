@@ -1,5 +1,8 @@
 <div class="container-lg media-page">
-    <input class="media-page__search form-control" type="text" placeholder="Type media item name" [(ngModel)]="searchValue" />
+  <form #mediaForm="ngForm" class="media-page__search form-group" (ngSubmit)="onSubmit(mediaForm)" novalidate="novalidate">
+    <input class="media-page__search-input form-control" type="text" placeholder="Type media item name" name="searchValue" ngModel />
+    <button type="submit" class="btn btn-primary media-page__search-button" [disabled]="mediaForm.invalid">Submit</button>
+  </form>
     <div class="media-page__media-items">
         <app-media-item class="media-page__media-item" *ngFor="let item of mediaItems | search:searchValue" [name]="item.name"></app-media-item>
     </div>

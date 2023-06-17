@@ -1,8 +1,9 @@
+import { Observable } from "rxjs";
 import { MediaItem } from "../models/media-item";
 
 export interface IMediaItemsService {
-  getAll(): MediaItem[];
-  getById(id: string): MediaItem | undefined;
-  saveOrUpdate(mediaItem: MediaItem): void;
-  delete(id: string): void;
+  getAll(): Observable<MediaItem[]>;
+  getById(id: string): Observable<MediaItem | undefined>;
+  saveOrUpdate(mediaItem: MediaItem): Observable<MediaItem>;
+  delete(id: string): Observable<MediaItem>;
 }

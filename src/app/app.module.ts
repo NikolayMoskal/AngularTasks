@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { SearchPipe } from './search/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './page-404/page-404.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { Page404Component } from './page-404/page-404.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
