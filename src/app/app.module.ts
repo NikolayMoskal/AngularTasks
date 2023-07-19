@@ -14,6 +14,9 @@ import { SearchPipe } from './search/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './page-404/page-404.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { LoginComponent } from './login/login.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     AppComponent,
     SearchPipe,
-    Page404Component
+    Page404Component,
+    LoginPageComponent,
+    LoginComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

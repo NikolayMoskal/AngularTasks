@@ -1,0 +1,18 @@
+<div class="auth-form">
+  <form #authorizeForm="ngForm" (ngSubmit)="onAuthorize(authorizeForm)" novalidate="novalidate">
+    <div class="form-group">
+      <label for="auth-form__user-name-input">User name</label>
+      <input type="text" name="username" class="form-control" id="auth-form__user-name-input" ngModel />
+    </div>
+    <div class="form-group">
+      <label for="auth-form__password-input">Password</label>
+      <input type="password" name="password" class="form-control" id="auth-form__password-input" ngModel />
+    </div>
+    <div *ngIf="roles" class="form-group">
+      <div *ngFor="let item of roles">
+        <input type="checkbox" [name]="item?.roleName" [value]="item?.hasRole" /> {{item?.roleName}}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary auth-form__submit-button">Create account</button>
+  </form>
+</div>

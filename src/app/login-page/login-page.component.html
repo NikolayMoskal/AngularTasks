@@ -1,0 +1,5 @@
+<div class="login-page">
+  <a class="login-page__auth-button text-primary" href="#" (click)="onRegisterClick()">Register</a>
+  <app-login *ngIf="isLogin"></app-login>
+  <app-auth *ngIf="!isLogin"></app-auth>
+</div>
