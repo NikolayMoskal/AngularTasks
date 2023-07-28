@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,9 +9,15 @@ import { Component } from '@angular/core';
 export class LoginPageComponent {
   isLogin = true;
   regButtonTitle = 'Register';
-  backToLoginTitle = 'Back '
+  backToLoginTitle = 'Back to login';
+
+  constructor(public authService: AuthService) {}
 
   onRegisterClick(): void {
     this.isLogin = !this.isLogin;
+  }
+
+  onLogOut(): void {
+    this.authService.logOut();
   }
 }

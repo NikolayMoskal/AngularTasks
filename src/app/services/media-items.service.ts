@@ -11,28 +11,27 @@ import { HttpHelper } from './http-helper';
 export class MediaItemsService implements IMediaItemsService {
   private route: string;
 
-  constructor(private http: HttpClient,
-              private httpHelper: HttpHelper) {
-    this.route = httpHelper.getUrl('/api/media');
+  constructor(private http: HttpClient) {
+    this.route = HttpHelper.getUrl('/api/media');
   }
 
   public getAll(): Observable<MediaItem[]> {
-    return this.http.get<MediaItem[]>(`${this.route}/GetAll`, { headers: this.httpHelper.HTTP_HEADERS });
+    return this.http.get<MediaItem[]>(`${this.route}/GetAll`);
   }
 
   public getById(id: string): Observable<MediaItem | undefined> {
     var params = new HttpParams()
       .set('id', id);
-    return this.http.get<MediaItem>(`${this.route}/GetById`, { headers: this.httpHelper.HTTP_HEADERS, params: params });
+    return this.http.get<MediaItem>(`${this.route}/GetById`, { params: params });
   }
 
   public saveOrUpdate(mediaItem: MediaItem): Observable<MediaItem> {
-    return this.http.post<MediaItem>(`${this.route}/SaveOrUpdate`, mediaItem, { headers: this.httpHelper.HTTP_HEADERS });
+    return this.http.post<MediaItem>(`${this.route}/SaveOrUpdate`, mediaItem);
   }
 
   public delete(id: string): Observable<MediaItem> {
     var params = new HttpParams()
       .set('id', id);
-    return this.http.delete<MediaItem>(`${this.route}/Delete`, { headers: this.httpHelper.HTTP_HEADERS, params: params });
+    return this.http.delete<MediaItem>(`${this.route}/Delete`, { params: params });
   }
 }

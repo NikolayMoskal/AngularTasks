@@ -2,7 +2,7 @@
     <app-logo class="header__logo"></app-logo>
     <app-menu class="header__menu"></app-menu>
     <div class="header__auth-form-container dropdown">
-      <button class="header__auth-button btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Log In</button>
+      <button class="header__auth-button btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ authService.getUserName() ?? 'Log In' }}</button>
       <div class="header__auth-form dropdown-menu dropdown-menu-right" (click)="onAuthFormClick($event)">
         <app-login-page></app-login-page>
       </div>

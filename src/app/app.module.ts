@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { MediaItemComponent } from './media-item/media-item.component';
@@ -13,10 +12,11 @@ import { AppComponent } from './app.component';
 import { SearchPipe } from './search/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './page-404/page-404.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LoginComponent } from './login/login.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthInterceptor } from './services/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,9 @@ import { AuthComponent } from './auth/auth.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [
     HeaderComponent,
     AppComponent
